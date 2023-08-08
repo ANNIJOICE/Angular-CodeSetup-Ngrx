@@ -34,6 +34,30 @@
             }
           ],
           "outputHashing": "all"
+        },        
+        "testin": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "2mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "10kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/client/src/environments/environment.ts",
+              "with": "apps/client/src/environments/environment.testin.ts"
+            },
+            {
+              "replace": "libs/api/src/environment.ts",
+              "with": "apps/client/src/environments/environment.testin.ts"
+            }
+          ]
         },
         "development": {
           "buildOptimizer": false,

@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';import { appRoutes } from './app.routes';import { NxWelcomeComponent } from './nx-welcome.component';
+import {
+  HTTP_INTERCEPTORS
+} from '@angular/common/http';
+import { HttpTokenInterceptor } from '@app/util'
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
@@ -9,7 +13,12 @@ import { AppComponent } from './app.component';import { appRoutes } from './app.
     BrowserModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
   ],
-  providers: [],
+  providers: [
+    {
+    multi: true,
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpTokenInterceptor
+  },],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
