@@ -75,7 +75,7 @@
   },
   "lint-staged": {
     "**/*.ts": [
-      "nx format:write --base=origin/main --uncommitted",
+      "nx format:write --uncommitted",
       "git add"
     ],
     "**/*.{html,css}": [
